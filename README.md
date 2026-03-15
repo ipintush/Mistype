@@ -1,4 +1,4 @@
-# Mistype
+# Mistype | אפליקציה להפיכת שפה למק
 
 **Typed in the wrong language? Fix it in one click.**
 
@@ -18,18 +18,30 @@ You can change the hotkey via the Mistype icon in the menu bar → Preferences.
 
 ---
 
-## Installation
+## Installation / התקנה
 
-### Homebrew (recommended)
+### קישור להורדה
+
+[הורד את Mistype 1.1](https://github.com/ipintush/Mistype/releases/tag/v1.1)
+
+### התקנה דרך הטרמינל
 
 ```bash
-brew tap ipintush/mistype
-brew install --cask mistype
+brew tap ipintush/mistype && brew install --cask mistype
 ```
 
-### Manual Download
+### התקנה ידנית (PKG)
 
-Download `Mistype-1.1.pkg` from [Releases](https://github.com/ipintush/Mistype/releases) and open it.
+1. הורד את קובץ ה-PKG מהקישור למעלה ופתח אותו, ולך לפי ההוראות.
+2. במידת הצורך יש להיכנס להגדרות ← פרטיות ואבטחה ושם למטה לאשר את ההתקנה.
+3. לאחר ההתקנה, העבר את קובץ `Mistype.app` לתיקיית האפליקציות.
+
+### לאחר ההתקנה
+
+לאחר הפעלת האפליקציה תראו אייקון של מקלדת בשורת האייקונים העליונה. לחיצה על האייקון מאפשרת לשנות את קיצור המקלדת להפעלת היפוך השפה.
+
+> **במידה וזה לא עובד** — בדקו שהרשאת הנגישות פעילה:
+> System Settings → Privacy & Security → Accessibility → ✔️ Granted
 
 ---
 

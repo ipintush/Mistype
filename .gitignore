@@ -1,0 +1,9 @@
+.build/
+*.pkg
+*.dmg
+Mistype.app/
+AppIcon.icns
+AppIcon.iconset/
+Mistype-bg.png
+.tmp-rw.dmg
+.dmg-staging/

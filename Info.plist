@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>CFBundleExecutable</key>
+    <string>Mistype</string>
+    <key>CFBundleIdentifier</key>
+    <string>com.mistype.app</string>
+    <key>CFBundleName</key>
+    <string>Mistype</string>
+    <key>CFBundleVersion</key>
+    <string>2</string>
+    <key>CFBundleShortVersionString</key>
+    <string>1.1</string>
+    <key>LSUIElement</key>
+    <true/>
+    <key>NSAccessibilityUsageDescription</key>
+    <string>Mistype needs Accessibility access to monitor the global hotkey (Cmd+Shift+H) and to simulate copy/paste keystrokes for converting text between Hebrew and English keyboard layouts.</string>
+    <key>CFBundleIconFile</key>
+    <string>AppIcon</string>
+    <key>NSPrincipalClass</key>
+    <string>NSApplication</string>
+</dict>
+</plist>

@@ -1,20 +1,20 @@
-# Mistype Homebrew Tap
+# SwitchBack Homebrew Tap
 
-Install Mistype without any Gatekeeper prompts:
+Install SwitchBack without any Gatekeeper prompts:
 
 ```bash
-brew tap ipintush/mistype
-brew install --cask mistype
+brew tap ipintush/switchback
+brew install --cask switchback
 ```
 
 ## Upgrade
 
 ```bash
-brew upgrade --cask mistype
+brew upgrade --cask switchback
 ```
 
 ## Uninstall
 
 ```bash
-brew uninstall --cask mistype
+brew uninstall --cask switchback
 ```

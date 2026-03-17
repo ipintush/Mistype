@@ -27,8 +27,8 @@ ctx.scaleBy(x: CGFloat(scale), y: CGFloat(scale))
 ctx.setFillColor(CGColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1))
 ctx.fill(CGRect(x: 0, y: 0, width: CGFloat(width), height: CGFloat(height)))
 
-// ── Title "Mistype" ───────────────────────────────────────────────────────────
-let titleStr = "Mistype" as CFString
+// ── Title "SwitchBack" ───────────────────────────────────────────────────────
+let titleStr = "SwitchBack" as CFString
 let titleFont = CTFontCreateWithName("Helvetica-Bold" as CFString, 30, nil)
 let titleAttrs: [CFString: Any] = [
     kCTFontAttributeName: titleFont,
@@ -57,8 +57,8 @@ func drawCenteredLine(_ text: String, y: CGFloat) {
 }
 
 drawCenteredLine("עברית יצאה אנגלית? אנגלית יצאה עברית? זה קורה לכולם.", y: 418)
-drawCenteredLine("Mistype על זה – מסמנים > לוחצים > נגמר", y: 400)
-drawCenteredLine("להתקנה: לחץ פעמיים על \"Install Mistype\"", y: 75)
+drawCenteredLine("SwitchBack על זה – מסמנים > לוחצים > נגמר", y: 400)
+drawCenteredLine("להתקנה: לחץ פעמיים על \"Install SwitchBack\"", y: 75)
 
 // ── Separator line ────────────────────────────────────────────────────────────
 ctx.setStrokeColor(CGColor(red: 0.88, green: 0.88, blue: 0.88, alpha: 1))
@@ -83,10 +83,10 @@ if let sliderImage = NSImage(contentsOf: svgPath) {
 // ── Write PNG @ 144 DPI ───────────────────────────────────────────────────────
 let img  = ctx.makeImage()!
 let dest = CGImageDestinationCreateWithURL(
-    URL(fileURLWithPath: "Mistype-bg.png") as CFURL,
+    URL(fileURLWithPath: "SwitchBack-bg.png") as CFURL,
     "public.png" as CFString, 1, nil)!
 let props: CFDictionary = [kCGImagePropertyDPIWidth: 144,
                             kCGImagePropertyDPIHeight: 144] as CFDictionary
 CGImageDestinationAddImage(dest, img, props)
 CGImageDestinationFinalize(dest)
-print("Generated Mistype-bg.png (\(width)x\(height) @2x)")
+print("Generated SwitchBack-bg.png (\(width)x\(height) @2x)")

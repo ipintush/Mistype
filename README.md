@@ -1,10 +1,10 @@
-# Mistype | אפליקציה להפיכת שפה למק
+# SwitchBack | אפליקציה להפיכת שפה למק
 
 **Typed in the wrong language? Fix it in one click.**
 
 A tiny macOS menu-bar app that solves a familiar problem: you typed a whole sentence in Hebrew while your keyboard was set to English, or vice versa — and now you have to delete everything and retype it.
 
-With Mistype, you select the text, press a hotkey — and the text is automatically converted to the correct language and pasted back in place.
+With SwitchBack, you select the text, press a hotkey — and the text is automatically converted to the correct language and pasted back in place.
 
 ---
 
@@ -14,7 +14,7 @@ With Mistype, you select the text, press a hotkey — and the text is automatica
 2. Press the hotkey (default: **Cmd+Shift+H**)
 3. The converted text replaces the original automatically
 
-You can change the hotkey via the Mistype icon in the menu bar → Preferences.
+You can change the hotkey via the SwitchBack icon in the menu bar → Preferences.
 
 ---
 
@@ -22,14 +22,14 @@ You can change the hotkey via the Mistype icon in the menu bar → Preferences.
 
 ### קישור להורדה
 
-[**הורד את Mistype 1.1**](https://github.com/ipintush/Mistype/releases/tag/v1.1)
+[**הורד את SwitchBack 1.1**](https://github.com/ipintush/Mistype/releases/tag/v1.1)
 
 ---
 
 ### התקנה דרך הטרמינל
 
 ```bash
-brew tap ipintush/mistype && brew install --cask mistype
+brew tap ipintush/switchback && brew install --cask switchback
 ```
 
 ---
@@ -57,9 +57,9 @@ brew tap ipintush/mistype && brew install --cask mistype
 
 ### לאחר ההתקנה
 
-העבירו את `Mistype.app` לתיקיית האפליקציות:
+העבירו את `SwitchBack.app` לתיקיית האפליקציות:
 
-![Mistype.app](docs/screenshot-5.png)
+![SwitchBack.app](docs/screenshot-5.png)
 
 לאחר הפעלת האפליקציה תראו אייקון מקלדת בשורת האייקונים העליונה. לחיצה עליו מאפשרת לשנות את קיצור הדרך.
 
@@ -71,7 +71,7 @@ brew tap ipintush/mistype && brew install --cask mistype
 
 ## Permissions
 
-Mistype requires **Accessibility** permission to read and replace text in any app.
+SwitchBack requires **Accessibility** permission to read and replace text in any app.
 On first launch a prompt will appear — approve it in System Settings.
 
 ---

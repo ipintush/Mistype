@@ -7,11 +7,11 @@ cd "$SCRIPT_DIR"
 # Resolve version from Info.plist
 VERSION=$(/usr/libexec/PlistBuddy -c "Print :CFBundleShortVersionString" "$SCRIPT_DIR/Info.plist" 2>/dev/null || echo "1.0")
 
-APP="$SCRIPT_DIR/Mistype.app"
-DMG="$HOME/Desktop/Mistype-${VERSION}.dmg"
+APP="$SCRIPT_DIR/SwitchBack.app"
+DMG="$HOME/Desktop/SwitchBack-${VERSION}.dmg"
 TMP_DMG="$SCRIPT_DIR/.tmp-rw.dmg"
 STAGING="$SCRIPT_DIR/.dmg-staging"
-VOLUME="/Volumes/Mistype"
+VOLUME="/Volumes/SwitchBack"
 
 cleanup() {
     hdiutil detach "$VOLUME" -quiet 2>/dev/null || true
@@ -20,12 +20,12 @@ cleanup() {
 }
 trap cleanup EXIT ERR
 
-echo "=== Building Mistype ==="
+echo "=== Building SwitchBack ==="
 bash "$SCRIPT_DIR/build.sh" --no-launch
 
 echo ""
 echo "=== Generating background image ==="
-rm -f "$SCRIPT_DIR/Mistype-bg.png"
+rm -f "$SCRIPT_DIR/SwitchBack-bg.png"
 swift "$SCRIPT_DIR/make_bg.swift"
 
 echo ""
@@ -33,15 +33,15 @@ echo "=== Preparing staging folder ==="
 rm -rf "$STAGING"
 mkdir -p "$STAGING"
 cp -r "$APP" "$STAGING/"
-cp "$SCRIPT_DIR/install.command" "$STAGING/Install Mistype.command"
-chmod +x "$STAGING/Install Mistype.command"
+cp "$SCRIPT_DIR/install.command" "$STAGING/Install SwitchBack.command"
+chmod +x "$STAGING/Install SwitchBack.command"
 
 
 echo ""
 echo "=== Creating writable temp DMG ==="
 rm -f "$TMP_DMG"
 hdiutil create \
-    -volname "Mistype" \
+    -volname "SwitchBack" \
     -srcfolder "$STAGING" \
     -fs HFS+ \
     -fsargs "-c c=64,a=16,b=16" \
@@ -59,7 +59,7 @@ echo "Mounted at $VOLUME (device $DEV)"
 
 echo "=== Installing background ==="
 mkdir -p "$VOLUME/.background"
-cp "$SCRIPT_DIR/Mistype-bg.png" "$VOLUME/.background/background.png"
+cp "$SCRIPT_DIR/SwitchBack-bg.png" "$VOLUME/.background/background.png"
 
 echo "=== Configuring Finder window via AppleScript ==="
 # Retry up to 3 times — Finder AppleScript can be slow to reflect new mounts
@@ -68,7 +68,7 @@ for attempt in 1 2 3; do
     sleep 2
     if osascript <<'APPLESCRIPT' 2>/dev/null; then
 tell application "Finder"
-    tell disk "Mistype"
+    tell disk "SwitchBack"
         open
         set current view of container window to icon view
         set toolbar visible of container window to false
@@ -79,8 +79,8 @@ tell application "Finder"
         set icon size of theViewOptions to 128
         set text size of theViewOptions to 13
         set background picture of theViewOptions to file ".background:background.png"
-        set position of item "Mistype.app" of container window to {160, 200}
-        set position of item "Install Mistype.command" of container window to {460, 200}
+        set position of item "SwitchBack.app" of container window to {160, 200}
+        set position of item "Install SwitchBack.command" of container window to {460, 200}
         close
         open
         update without registering applications

@@ -14,19 +14,19 @@ done
 echo "Generating AppIcon.icns..."
 swift make_icon.swift
 
-echo "Building Mistype (universal)..."
+echo "Building SwitchBack (universal)..."
 swift build -c release --arch arm64
 swift build -c release --arch x86_64
 
 echo "Lipoing universal binary..."
 mkdir -p .build/release
 lipo -create \
-    .build/arm64-apple-macosx/release/Mistype \
-    .build/x86_64-apple-macosx/release/Mistype \
-    -output .build/release/Mistype
+    .build/arm64-apple-macosx/release/SwitchBack \
+    .build/x86_64-apple-macosx/release/SwitchBack \
+    -output .build/release/SwitchBack
 
-BINARY=".build/release/Mistype"
-APP_DIR="Mistype.app"
+BINARY=".build/release/SwitchBack"
+APP_DIR="SwitchBack.app"
 CONTENTS="$APP_DIR/Contents"
 MACOS="$CONTENTS/MacOS"
 RESOURCES="$CONTENTS/Resources"
@@ -35,7 +35,7 @@ echo "Assembling .app bundle..."
 rm -rf "$APP_DIR"
 mkdir -p "$MACOS" "$RESOURCES"
 
-cp "$BINARY"      "$MACOS/Mistype"
+cp "$BINARY"      "$MACOS/SwitchBack"
 cp "Info.plist"   "$CONTENTS/Info.plist"
 cp "AppIcon.icns" "$RESOURCES/AppIcon.icns"
 
@@ -45,8 +45,8 @@ codesign --force --deep \
     --sign - "$APP_DIR"
 
 if [[ "$NO_LAUNCH" == false ]]; then
-    echo "Done. Launching Mistype.app..."
-    pkill -x Mistype 2>/dev/null || true
+    echo "Done. Launching SwitchBack.app..."
+    pkill -x SwitchBack 2>/dev/null || true
     sleep 0.5
     open "$APP_DIR"
 else

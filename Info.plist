@@ -3,11 +3,11 @@
 <plist version="1.0">
 <dict>
     <key>CFBundleExecutable</key>
-    <string>Mistype</string>
+    <string>SwitchBack</string>
     <key>CFBundleIdentifier</key>
-    <string>com.mistype.app</string>
+    <string>com.switchback.app</string>
     <key>CFBundleName</key>
-    <string>Mistype</string>
+    <string>SwitchBack</string>
     <key>CFBundleVersion</key>
     <string>2</string>
     <key>CFBundleShortVersionString</key>
@@ -15,7 +15,7 @@
     <key>LSUIElement</key>
     <true/>
     <key>NSAccessibilityUsageDescription</key>
-    <string>Mistype needs Accessibility access to monitor the global hotkey (Cmd+Shift+H) and to simulate copy/paste keystrokes for converting text between Hebrew and English keyboard layouts.</string>
+    <string>SwitchBack needs Accessibility access to monitor the global hotkey (Cmd+Shift+H) and to simulate copy/paste keystrokes for converting text between Hebrew and English keyboard layouts.</string>
     <key>CFBundleIconFile</key>
     <string>AppIcon</string>
     <key>NSPrincipalClass</key>

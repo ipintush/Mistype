@@ -2,15 +2,15 @@
 set -euo pipefail
 
 # =============================================================================
-# Mistype — automated release script
+# SwitchBack — automated release script
 #
 # Usage:
 #   bash release.sh
 #
 # What it does:
-#   1. Builds Mistype-<version>.pkg via make_pkg.sh
+#   1. Builds SwitchBack-<version>.pkg via make_pkg.sh
 #   2. Computes SHA256
-#   3. Rewrites homebrew-tap/Casks/mistype.rb
+#   3. Rewrites homebrew-tap/Casks/switchback.rb
 #   4. Commits + tags + pushes main repo
 #   5. Creates GitHub Release and uploads the PKG
 #   6. Commits + pushes tap repo
@@ -21,8 +21,8 @@ cd "$SCRIPT_DIR"
 
 # ── Configure once ──────────────────────────────────────────────────────────
 GITHUB_USER="${GITHUB_USER:-ipintush}"
-GITHUB_REPO="mistype"
-TAP_REPO="homebrew-mistype"
+GITHUB_REPO="SwitchBack"
+TAP_REPO="homebrew-switchback"
 # ────────────────────────────────────────────────────────────────────────────
 
 # 0. Validation
@@ -34,11 +34,11 @@ fi
 command -v gh >/dev/null 2>&1 || { echo "ERROR: GitHub CLI not found. Install with:  brew install gh"; exit 1; }
 
 VERSION=$(/usr/libexec/PlistBuddy -c "Print :CFBundleShortVersionString" Info.plist)
-PKG="$SCRIPT_DIR/Mistype-${VERSION}.pkg"
+PKG="$SCRIPT_DIR/SwitchBack-${VERSION}.pkg"
 TAG="v${VERSION}"
 
 # 1. Build
-echo "=== Building Mistype ${VERSION} ==="
+echo "=== Building SwitchBack ${VERSION} ==="
 bash "$SCRIPT_DIR/make_pkg.sh"
 
 [[ -f "$PKG" ]] || { echo "ERROR: Expected PKG not found: $PKG"; exit 1; }
@@ -51,24 +51,24 @@ echo "  $SHA256"
 
 # 3. Update cask
 echo ""
-echo "=== Updating homebrew-tap/Casks/mistype.rb ==="
-cat > "$SCRIPT_DIR/homebrew-tap/Casks/mistype.rb" <<RUBY
+echo "=== Updating homebrew-tap/Casks/switchback.rb ==="
+cat > "$SCRIPT_DIR/homebrew-tap/Casks/switchback.rb" <<RUBY
 # This file is auto-updated by release.sh — do not edit manually.
-cask "mistype" do
+cask "switchback" do
   version "${VERSION}"
   sha256 "${SHA256}"
 
-  url "https://github.com/${GITHUB_USER}/${GITHUB_REPO}/releases/download/${TAG}/Mistype-${VERSION}.pkg"
-  name "Mistype"
+  url "https://github.com/${GITHUB_USER}/${GITHUB_REPO}/releases/download/${TAG}/SwitchBack-${VERSION}.pkg"
+  name "SwitchBack"
   desc "Toggle selected text between Hebrew and English keyboard layouts"
   homepage "https://github.com/${GITHUB_USER}/${GITHUB_REPO}"
 
-  pkg "Mistype-#{version}.pkg"
+  pkg "SwitchBack-#{version}.pkg"
 
-  uninstall pkgutil: "com.mistype.app",
-            delete:  "/Applications/Mistype.app"
+  uninstall pkgutil: "com.switchback.app",
+            delete:  "/Applications/SwitchBack.app"
 
-  zap trash: "~/Library/Preferences/com.mistype.app.plist"
+  zap trash: "~/Library/Preferences/com.switchback.app.plist"
 end
 RUBY
 
@@ -91,7 +91,7 @@ echo ""
 echo "=== Creating GitHub Release ${TAG} ==="
 gh release create "${TAG}" \
     "$PKG" \
-    --title "Mistype ${VERSION}" \
+    --title "SwitchBack ${VERSION}" \
     --notes-file CHANGELOG.md \
     --repo "${GITHUB_USER}/${GITHUB_REPO}"
 
@@ -100,7 +100,7 @@ echo ""
 echo "=== Pushing tap repo ==="
 cd "$SCRIPT_DIR/homebrew-tap"
 git add -A
-git commit -m "Mistype ${VERSION}"
+git commit -m "SwitchBack ${VERSION}"
 git push origin main
 
 echo ""
@@ -108,5 +108,5 @@ echo "========================================================"
 echo " Released ${TAG} successfully!"
 echo "========================================================"
 echo ""
-echo "Install:  brew tap ${GITHUB_USER}/mistype && brew install --cask mistype"
-echo "Upgrade:  brew upgrade --cask mistype"
+echo "Install:  brew tap ${GITHUB_USER}/switchback && brew install --cask switchback"
+echo "Upgrade:  brew upgrade --cask switchback"

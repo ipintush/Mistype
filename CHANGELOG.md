@@ -1,4 +1,4 @@
-# Mistype Changelog
+# SwitchBack Changelog
 
 ## 1.1 (2026-03-11)
 

@@ -1,9 +1,9 @@
 .build/
 *.pkg
 *.dmg
-Mistype.app/
+SwitchBack.app/
 AppIcon.icns
 AppIcon.iconset/
-Mistype-bg.png
+SwitchBack-bg.png
 .tmp-rw.dmg
 .dmg-staging/

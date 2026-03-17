@@ -88,7 +88,7 @@ enum ClipboardHelper {
     private static func showAccessibilityAlert() {
         let alert = NSAlert()
         alert.messageText = "Accessibility Access Required"
-        alert.informativeText = "Mistype needs Accessibility access. Please enable it in System Settings → Privacy & Security → Accessibility."
+        alert.informativeText = "SwitchBack needs Accessibility access. Please enable it in System Settings → Privacy & Security → Accessibility."
         alert.addButton(withTitle: "Open System Settings")
         alert.addButton(withTitle: "Cancel")
         alert.alertStyle = .warning

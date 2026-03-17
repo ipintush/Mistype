@@ -2,16 +2,16 @@
 set -euo pipefail
 
 SOURCE_DIR="$(cd "$(dirname "$0")" && pwd)"
-APP_SRC="$SOURCE_DIR/Mistype.app"
-DEST="/Applications/Mistype.app"
+APP_SRC="$SOURCE_DIR/SwitchBack.app"
+DEST="/Applications/SwitchBack.app"
 
 echo ""
-echo "=== Mistype Installer ==="
+echo "=== SwitchBack Installer ==="
 echo ""
 
 if [ ! -d "$APP_SRC" ]; then
-    echo "Error: Mistype.app not found."
-    echo "Please run this installer directly from the Mistype disk image."
+    echo "Error: SwitchBack.app not found."
+    echo "Please run this installer directly from the SwitchBack disk image."
     read -rp "Press Enter to close..."
     exit 1
 fi
@@ -21,12 +21,12 @@ if [ -d "$DEST" ]; then
     rm -rf "$DEST"
 fi
 
-echo "Installing Mistype to /Applications..."
+echo "Installing SwitchBack to /Applications..."
 cp -r "$APP_SRC" "$DEST"
 
 echo "Removing macOS quarantine flag..."
 xattr -cr "$DEST"
 
 echo ""
-echo "Done! Launching Mistype..."
+echo "Done! Launching SwitchBack..."
 open "$DEST"

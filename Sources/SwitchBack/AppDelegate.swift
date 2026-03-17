@@ -45,14 +45,14 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
 
         if let button = statusItem?.button {
-            let image = NSImage(systemSymbolName: "keyboard", accessibilityDescription: "Mistype")
+            let image = NSImage(systemSymbolName: "keyboard", accessibilityDescription: "SwitchBack")
             image?.isTemplate = true
             button.image = image
         }
 
         let menu = NSMenu()
 
-        let titleItem = NSMenuItem(title: "Mistype", action: nil, keyEquivalent: "")
+        let titleItem = NSMenuItem(title: "SwitchBack", action: nil, keyEquivalent: "")
         titleItem.isEnabled = false
         menu.addItem(titleItem)
 

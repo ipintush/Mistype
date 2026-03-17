@@ -2,7 +2,7 @@ import AppKit
 import Carbon
 
 enum HotkeyStore {
-    private static let defaultsKey = "mistypeHotkey"
+    private static let defaultsKey = "switchbackHotkey"
 
     static func load() -> (keyCode: UInt16, modifiers: NSEvent.ModifierFlags) {
         if let dict = UserDefaults.standard.dictionary(forKey: defaultsKey),

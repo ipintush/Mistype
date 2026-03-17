@@ -2,12 +2,12 @@
 import PackageDescription
 
 let package = Package(
-    name: "Mistype",
+    name: "SwitchBack",
     platforms: [.macOS(.v11)],
     targets: [
         .executableTarget(
-            name: "Mistype",
-            path: "Sources/Mistype"
+            name: "SwitchBack",
+            path: "Sources/SwitchBack"
         )
     ]
 )

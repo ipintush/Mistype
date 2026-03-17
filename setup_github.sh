@@ -2,19 +2,19 @@
 set -euo pipefail
 
 # =============================================================================
-# Mistype — one-time GitHub setup
+# SwitchBack — one-time GitHub setup
 #
 # Run once after creating two public GitHub repos:
-#   - mistype          (main code + releases)
-#   - homebrew-mistype (tap)
+#   - SwitchBack          (main code + releases)
+#   - homebrew-switchback (tap)
 #
 # Usage:
 #   GITHUB_USER=yourname bash setup_github.sh
 # =============================================================================
 
 GITHUB_USER="${GITHUB_USER:-ipintush}"
-MAIN_REPO="mistype"
-TAP_REPO="homebrew-mistype"
+MAIN_REPO="SwitchBack"
+TAP_REPO="homebrew-switchback"
 
 if [[ -z "$GITHUB_USER" ]]; then
     echo "ERROR: GITHUB_USER is not set."
@@ -29,7 +29,7 @@ VERSION=$(/usr/libexec/PlistBuddy -c "Print :CFBundleShortVersionString" "$SCRIP
 cd "$SCRIPT_DIR"
 git init
 git add -A
-git commit -m "Initial commit — Mistype v${VERSION}"
+git commit -m "Initial commit — SwitchBack v${VERSION}"
 git branch -M main
 git remote add origin "git@github.com:${GITHUB_USER}/${MAIN_REPO}.git"
 git push -u origin main

@@ -74,6 +74,12 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         accessibilityItem.tag = 100
         menu.addItem(accessibilityItem)
 
+        let loginItem = NSMenuItem(title: "Launch on Login", action: #selector(toggleLaunchOnLogin), keyEquivalent: "")
+        loginItem.target = self
+        loginItem.state = LoginItemManager.shared.isEnabled ? .on : .off
+        loginItem.tag = 102
+        menu.addItem(loginItem)
+
         menu.addItem(NSMenuItem.separator())
 
         menu.addItem(NSMenuItem(title: "Quit", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
@@ -97,6 +103,17 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         if let item = statusItem?.menu?.item(withTag: 101) {
             let (kc, mods) = HotkeyStore.load()
             item.title = "Hotkey: \(HotkeyStore.displayString(keyCode: kc, modifiers: mods))"
+        }
+        if let item = statusItem?.menu?.item(withTag: 102) {
+            item.state = LoginItemManager.shared.isEnabled ? .on : .off
+        }
+    }
+
+    @objc private func toggleLaunchOnLogin() {
+        let newValue = !LoginItemManager.shared.isEnabled
+        LoginItemManager.shared.setEnabled(newValue)
+        if let item = statusItem?.menu?.item(withTag: 102) {
+            item.state = newValue ? .on : .off
         }
     }
 

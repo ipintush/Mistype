@@ -1,5 +1,13 @@
 # SwitchBack Changelog
 
+## 1.2 (2026-03-18)
+
+### Features
+
+- **Launch on Login**: New menu item to toggle whether SwitchBack launches automatically at login.
+
+---
+
 ## 1.1 (2026-03-11)
 
 ### Bug Fixes

@@ -32,7 +32,7 @@ MACOS="$CONTENTS/MacOS"
 RESOURCES="$CONTENTS/Resources"
 
 echo "Assembling .app bundle..."
-rm -rf "$APP_DIR"
+rm -rf "$APP_DIR" 2>/dev/null || sudo rm -rf "$APP_DIR"
 mkdir -p "$MACOS" "$RESOURCES"
 
 cp "$BINARY"      "$MACOS/SwitchBack"

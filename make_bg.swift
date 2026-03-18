@@ -58,7 +58,8 @@ func drawCenteredLine(_ text: String, y: CGFloat) {
 
 drawCenteredLine("עברית יצאה אנגלית? אנגלית יצאה עברית? זה קורה לכולם.", y: 418)
 drawCenteredLine("SwitchBack על זה – מסמנים > לוחצים > נגמר", y: 400)
-drawCenteredLine("להתקנה: לחץ פעמיים על \"Install SwitchBack\"", y: 75)
+drawCenteredLine("לא מחובר ל-Mac App Store? אין בעיה.", y: 90)
+drawCenteredLine("לחץ פעמיים על Install SwitchBack לפניך ←", y: 68)
 
 // ── Separator line ────────────────────────────────────────────────────────────
 ctx.setStrokeColor(CGColor(red: 0.88, green: 0.88, blue: 0.88, alpha: 1))

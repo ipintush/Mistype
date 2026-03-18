@@ -17,6 +17,7 @@ pkgbuild \
   --install-location /Applications \
   --identifier com.switchback.app \
   --version "$VERSION" \
+  --scripts "$SCRIPT_DIR/pkg-scripts" \
   "$PKG"
 
 echo ""

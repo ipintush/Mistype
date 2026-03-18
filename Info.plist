@@ -8,6 +8,8 @@
     <string>com.switchback.app</string>
     <key>CFBundleName</key>
     <string>SwitchBack</string>
+    <key>CFBundlePackageType</key>
+    <string>APPL</string>
     <key>CFBundleVersion</key>
     <string>3</string>
     <key>CFBundleShortVersionString</key>

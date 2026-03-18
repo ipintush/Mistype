@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -e
+
+APP="/Applications/SwitchBack.app"
+
+if [ -d "$APP" ]; then
+    xattr -cr "$APP"
+    open "$APP"
+fi
